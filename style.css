@@ -888,6 +888,8 @@ button:hover {
   box-shadow: 0 5px 15px rgba(30, 39, 48, 0.3);
 }
 
+
+/* Brands Collaborations */
 /* Logo Slider */
 .slider .slider-animation {
   width: 3600px;
@@ -896,6 +898,16 @@ button:hover {
 
 .slider .slider-animation:hover {
   animation-play-state: paused;
+}
+
+.slider-track .slide {
+  margin: 30px;
+}
+
+.slider-track .slide img {
+  width: 210px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(216, 220, 32, 0.742);
 }
 
 @keyframes scroll {
@@ -1500,6 +1512,7 @@ footer .footer-container {
   transform: scale(1.02);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
+
 #calendar .events a:hover h3 {
   color: white !important;
   text-shadow: #048bc0 !important;
