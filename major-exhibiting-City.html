@@ -4,56 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Major Cities | Verlux Stands – Exhibition Stand Design & Booth Builder in Europe & India</title>
 
-    <meta name="description" content="Verlux Stands is a leading exhibition stand design company in India & Europe that builds luxury yet functional modern exhibition stands across India and Europe. We create memorable stands that attract people. Book your exhibition stand with us today.">
-    <meta name="keywords" content="exhibition stand design company in India, exhibition stand design company in Europe, exhibition stand builders in India, exhibition stand builders in Europe, custom exhibition stands, trade show booth design, modular exhibition stands, luxury exhibition stands, modern exhibition stands, exhibition stand rental, exhibition stand construction, exhibition booth design services, exhibition stand fabrication, exhibition stand installation, exhibition stand project management">
+    <title>Major Cities | Verlux Stands – Exhibition Stand Design & Booth Builder</title>
+    <meta name="description"
+        content="Verlux Stands is a leading exhibition stand design company in India & Europe that builds luxury yet functional modern exhibition stands across India and Europe. We create memorable stands that attract people. Book your exhibition stand with us today.">
+    <meta name="keywords"
+        content="exhibition stand design company in India, exhibition stand design company in Europe, exhibition stand builders in India, exhibition stand builders in Europe, custom exhibition stands, trade show booth design, modular exhibition stands, luxury exhibition stands, modern exhibition stands, exhibition stand rental, exhibition stand construction, exhibition booth design services, exhibition stand fabrication, exhibition stand installation, exhibition stand project management">
     <meta name="author" content="Verlux Stands">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.verluxstands.com/"> <!-- Update with your live domain -->
+    <meta property="og:url" content="https://www.verluxstands.com/">
     <meta property="og:title" content="Verlux Stands – Exhibition Stand Design & Booth Builder in Europe & India">
     <meta property="og:description" content="Luxury & modern exhibition stand designs across Europe and India. Custom stands that attract and convert.">
-    <meta property="og:image" content="https://codesbird.github.io/verlux-stands/assets/icons/android-chrome-192x192.png"> <!-- Use full image URL -->
+    <meta property="og:image" content="https://verluxstands.github.io/verluxstands/assets/icons/WhatsApp%20Image%202025-09-19%20at%2013.54.04_30e78042.jpg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.verluxstands.com/">
     <meta name="twitter:title" content="Verlux Stands – Exhibition Stand Design & Booth Builder in Europe & India">
     <meta name="twitter:description" content="Luxury & modern exhibition stand designs across Europe and India. Custom stands that attract and convert.">
-    <meta name="twitter:image" content="https://codesbird.github.io/verlux-stands/assets/icons/android-chrome-192x192.png">
-        
+    <meta name="twitter:image" content="https://verluxstands.github.io/verluxstands/assets/icons/WhatsApp%20Image%202025-09-19%20at%2013.54.04_30e78042.jpg">
+    
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    <!-- Theme -->
+    <meta name="theme-color" content="#0D0D0D">
+    <meta name="msapplication-TileColor" content="#D4AF37">
 
-    <!-- Favicon and App Icons -->
+    <!-- Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon-16x16.png">
     <link rel="manifest" href="./assets/icons/site.webmanifest">
-    <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.ico">
 
-    <!-- Android Icons -->
-    <link rel="icon" type="image/png" sizes="192x192" href="./assets/icons/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="./assets/icons/android-chrome-512x512.png">
 
-    <!-- Theme Colors for Mobile & PWA -->
-    <meta name="theme-color" content="#0D0D0D"> <!-- Luxury Night (dark primary) -->
-    <meta name="msapplication-TileColor" content="#D4AF37"> <!-- Luxury Gold -->
-
-    <!-- google fonts -->
+    <!-- Google Fonts: Playfair Display + Open Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preload"href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&display=swap">
+    </noscript>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" media="print" onload="this.media='all'">
+ 
     <link rel="stylesheet" href="./style.css">
 
-    <!-- tailwind script -->
+    <!-- Preload LCP image -->
+    <link rel="preload" as="image" href="./assets/icons/WhatsApp Image 2025-09-19 at 13.54.04_30e78042.jpg">
+    
+    <!-- Tailwind (replace with local build for production) -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -506,119 +509,6 @@
         <img src="./assets/icons/up.png" width="30px" alt="">
     </a>
 
-    <!-- Modal Overlay -->
-    <div onclick="toggleModal(false)" id="downloadModal"
-        class="fixed inset-0 z-50 items-center flex justify-center bg-black bg-opacity-50 download-modal">
-        <div class="h-[52rem] rounded-lg w-full max-w-6xl p-6 relative">
-            <!-- Close Button -->
-
-            <!-- Modal Title -->
-
-            <!-- Form -->
-            <form id="brochureForm" class="h-full brochure-form relative">
-                <a role="button" onclick="toggleModal(false)"
-                    class="w-4 m-4 absolute top-2 right-[1.5rem] text-gray-100 hover:text-gray-300 text-5xl">&times;</a>
-                <h2 class="text-4xl text-gray-100 font-semibold text-center">Download Our Brochure</h2>
-
-                <!-- Name -->
-                <div class="mb-4">
-                    <label class="font-medium">Name <span class="text-red-500">*</span></label>
-                    <input type="text" name="name" placeholder="Enter your full name" required
-                        class="w-full bg-transparent rounded-xl border rounded px-3 py-2 ">
-                    </div=>
-                    <!-- Phone -->
-                    <div class="my-3 py-2">
-                        <label class="font-medium">Phone Number <span class="text-red-500">*</span></label>
-                        <input type="tel" name="phone" placeholder="Enter your phone number" required
-                            class="w-full bg-transparent rounded-xl border rounded px-3 py-2 ">
-                        </div=>
-
-                        <!-- Email -->
-                        <div class="my-3 py-2">
-                            <label class="font-medium">Email Address <span class="text-red-500">*</span></label>
-                            <input type="email" name="email" placeholder="Enter your email address" required
-                                class="w-full bg-transparent rounded-xl border rounded px-3 py-2 ">
-                            </div=>
-
-                            <!-- Company Name -->
-                            <div class="my-3 py-2">
-                                <label class="font-medium">Company Name</label>
-                                <input type="text" name="company" placeholder="Enter your company name"
-                                    class="w-full bg-transparent rounded-xl border rounded px-3 py-2 ">
-                                </div=>
-
-
-                                <!-- Download Button (full width) -->
-                                <div class="my-6 py-2">
-                                    <button type="submit"
-                                        class="rounded-[50pc] my-4 trade-show-toggle-buttons py-2 rounded text-gray-100">
-                                        Download Brochure
-                                    </button>
-                                    <p class="mt-5 text-gray-300 text-xl">Brochure guide (PDF - 2.5 MB, 12 Pages)</p>
-                                </div>
-            </form>
-        </div>
-    </div>
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-
-            function toggleModal(show) {
-                const modal = document.getElementById('downloadModal');
-                const brochureForm = document.getElementById('brochureForm');
-                if (show) {
-                    if (modal) {
-                        brochureForm.classList.toggle('active');
-                        modal.classList.toggle('active');
-                    }
-                    return;
-                }
-
-                brochureForm.classList.remove('active');
-                modal.classList.remove('active');
-
-            }
-
-            // Expose to global scope so button can call it
-            window.toggleModal = toggleModal;
-
-            const form = document.getElementById('brochureForm');
-            if (form) {
-                form.addEventListener('submit', function (e) {
-                    e.preventDefault();
-
-                    if (!form.checkValidity()) {
-                        form.reportValidity();
-                        return;
-                    }
-
-                    toggleModal(false);
-
-                    // Simulate download
-                    const pdfUrl = 'path/to/your-brochure.pdf'; // Update this
-                    const link = document.createElement('a');
-                    link.href = pdfUrl;
-                    link.download = 'brochure.pdf';
-                    document.body.appendChild(link); // Needed for Firefox
-                    link.click();
-                    link.remove();
-                });
-            }
-
-            // Close on Escape key
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
-                    toggleModal(false)
-                }
-            });
-
-        });
-
-    </script>
-
-    <script src="https://md-aqil.github.io/images/swiper.min.js"></script>
-    <script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js"></script>
 
     <script src="./script.js"></script>
 

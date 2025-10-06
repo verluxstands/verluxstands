@@ -1,7 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,900;1,6..96,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-/* font-family: "Playfair Display", serif; */
-
-
 * {
   margin: 0;
   padding: 0;
@@ -16,8 +12,6 @@
   /* Gold metallic - Primary accent */
   --luxury-seasalt: #F9F9F9;
   /* Seasalt - Light backgrounds */
-  --luxury-jet: #2E2E2E;
-  /* Jet - Secondary dark */
 
   /* Derived luxury colors for enhanced palette */
   --luxury-gold-dark: #B8941F;
@@ -38,24 +32,16 @@
   --primary-orange: var(--luxury-gold);
   --golden-brown: var(--luxury-gold);
   --burnt-orange: var(--luxury-gold-dark);
-  --dark-brown: var(--luxury-jet);
-  --deep-brown: var(--luxury-charcoal);
   --warm-cream: var(--luxury-seasalt);
   --soft-amber: var(--luxury-gold-light);
-  --rich-bronze: var(--luxury-bronze);
-  --muted-copper: var(--luxury-jet);
   --charcoal-blue: var(--luxury-charcoal);
   --dusty-gold: var(--luxury-gold);
   --face_color: var(--luxury-gold);
-  --light_face: var(--luxury-champagne);
   --white: #ffffff;
   --black: #000;
-  --silver: #C0C0C0;
   --light_black: var(--luxury-charcoal);
 
   /* Updated gradients with luxury theme */
-  --tw-gradient-to: var(--luxury-gold) !important;
-  --tw-gradient-from: var(--luxury-night) !important;
 }
 
 body {
@@ -73,7 +59,7 @@ html {
 .playfair-font,
 h1,
 h2 {
-  font-family: "Playfair Display";
+  font-family: 'Playfair Display', serif;
   font-optical-sizing: auto;
   font-weight: bold !important;
   font-style: normal;
@@ -89,7 +75,7 @@ button,
 ul li a,
 #chatBox a,
 #chatBox span {
-  font-family: "Open Sans";
+  font-family: 'Open Sans', sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "wdth" 100;
@@ -630,76 +616,6 @@ header {
   background: linear-gradient(309deg, var(--face_color), var(--golden-brown) 50%);
 }
 
-.single-service {
-  position: relative;
-  margin-top: 30px;
-  /* background: linear-gradient(135deg, var(--luxury-gold), var(--luxury-gold-dark)); */
-  border: 1px solid var(--golden-brown);
-  border-radius: 10px;
-  padding: 40px 30px;
-  overflow: hidden;
-  height: 100%;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px 4px rgba(30, 39, 48, 0.15);
-}
-
-.single-service:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(30, 39, 48, 0.15);
-}
-
-.single-service .content {
-  position: relative;
-  z-index: 1;
-  color: var(--primary-dark);
-}
-
-.single-service .circle-before {
-  position: absolute;
-  top: 0;
-  right: 0px;
-  transform: translate(40%, -40%);
-  width: 150px;
-  height: 150px;
-  background: linear-gradient(135deg, var(--luxury-gold), var(--luxury-gold-light));
-  border: 6px solid var(--face_color);
-  border-radius: 50%;
-  opacity: 0.6;
-  z-index: 0;
-  transition: all .6s;
-}
-
-.single-service:hover .circle-before {
-  width: 100%;
-  height: 100%;
-  transform: none;
-  border: 0;
-  border-radius: 0;
-  opacity: 1;
-  background: linear-gradient(135deg, var(--burnt-orange), var(--golden-brown));
-}
-
-.single-service .icon {
-  display: inline-block;
-  margin-bottom: 26px;
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, var(--golden-brown), var(--burnt-orange));
-  border-radius: 5px;
-  line-height: 70px;
-  text-align: center;
-  color: var(--white);
-  font-size: 30px;
-  transition: all 1s;
-}
-
-.single-service:hover .icon {
-  background: var(--white);
-  color: var(--burnt-orange);
-  transform: scale(1.1);
-}
-
-
 .custom-booths-exhibit-card {
   background: linear-gradient(135deg, var(--luxury-gold), var(--luxury-gold-dark));
   transition: transform 1s;
@@ -715,94 +631,10 @@ header {
   color: rgba(255, 255, 255, 0.856);
 }
 
-.single-service:hover p {
-  color: white;
-}
-
 .custom-booths-exhibit-card:hover {
   background: linear-gradient(135deg, var(--luxury-gold) 70%, var(--luxury-gold-dark));
   /* margin-top: 5px; */
   transform: scale(1.1);
-}
-
-
-.country-cards {
-  border: 4px solid var(--luxury-gold-light);
-  /* overflow: hidden; */
-}
-
-.country-cards img {
-  border: 4px solid var(--luxury-gold-light);
-}
-
-.country-cards:hover {
-  transform: translateY(-5px);
-  box-shadow: 2px 10px 40px 1px color-mix(in hsl shorter hue, var(--luxury-gold) 40%, var(--luxury-gold-light));
-}
-
-.country-cards-title {
-  background: linear-gradient(45deg, var(--luxury-gold-light), var(--luxury-gold));
-  color: white !important;
-}
-
-/* Card CSS */
-.containe_card {
-  position: relative;
-  width: 1100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-}
-
-.containe_card .card {
-  position: relative;
-  max-width: 300px;
-  height: 172px;
-  background: linear-gradient(135deg, var(--warm-cream), var(--white));
-  margin: 30px 10px;
-  padding: 20px 15px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 5px 20px rgba(30, 39, 48, 0.2);
-  transition: 0.3s ease-in-out;
-  border-radius: 15px;
-  border: 1px solid var(--golden-brown);
-}
-
-.containe_card .card:hover {
-  height: 320px;
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(30, 39, 48, 0.3);
-}
-
-.containe_card .card .content {
-  position: relative;
-  top: -140px;
-  padding: 10px 15px;
-  color: var(--primary-dark);
-  text-align: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.3s ease-in-out;
-  font-size: 12px;
-}
-
-.containe_card .card:hover .content {
-  margin-top: 30px;
-  visibility: visible;
-  opacity: 1;
-  transition-delay: 0.2s;
-}
-
-.sketch {
-  background: linear-gradient(var(--warm-cream), var(--dusty-gold)), url(/assets/img/3dimages/treestand.webp) no-repeat top center / cover fixed;
-}
-
-.title {
-  color: var(--primary-dark);
-  width: 200px;
-  height: 36px;
 }
 
 /* Contact Form */
@@ -824,14 +656,6 @@ header {
 
 }
 
-.contactform {
-  background: linear-gradient(135deg, var(--primary-dark), var(--charcoal-blue));
-  max-width: 500px;
-  padding: 30px 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  border: 2px solid var(--golden-brown);
-}
 
 .form-group {
   position: relative;
@@ -957,29 +781,7 @@ button:hover {
   transform: scale(1.05);
   box-shadow: 0 20px 50px rgba(30, 39, 48, 0.4);
 }
-
-/* Captcha */
-#verify-btn {
-  background: linear-gradient(45deg, var(--golden-brown), var(--burnt-orange));
-  color: var(--primary-dark);
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-#verify-btn:hover {
-  background: linear-gradient(45deg, var(--burnt-orange), var(--golden-brown));
-  transform: translateY(-2px);
-}
-
-#result-message {
-  margin-top: 10px;
-  font-weight: bold;
-  color: var(--primary-dark);
-}
+ 
 
 video {
   width: 70%;
@@ -1357,6 +1159,15 @@ footer .footer-container {
 .social-media a:hover {
   /* background: linear-gradient(45deg, var(--golden-brown), var(--luxury-bronze)); */
   transform: translateY(-5px);
+}
+
+.contactform {
+  background: linear-gradient(135deg, var(--primary-dark), var(--charcoal-blue));
+  max-width: 500px;
+  padding: 30px 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--golden-brown);
 }
 
 .contactform input,

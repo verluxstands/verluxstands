@@ -1,64 +1,10 @@
-// Utility function to safely query elements
+
 function safeQuerySelector(selector) {
   try {
     return document.querySelector(selector);
   } catch (error) {
     console.warn(`Element not found: ${selector}`);
     return null;
-  }
-}
-
-function safeQuerySelectorAll(selector) {
-  try {
-    return document.querySelectorAll(selector);
-  } catch (error) {
-    console.warn(`Elements not found: ${selector}`);
-    return [];
-  }
-}
-
-// Tab functionality with error handling
-function initializeTabs() {
-  try {
-    const tabs = safeQuerySelectorAll(".tab");
-    const contents = safeQuerySelectorAll(".tab-content");
-
-    if (tabs.length === 0 || contents.length === 0) {
-      console.log("Tab elements not found on this page");
-      return;
-    }
-
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        try {
-          // Remove active class from all tabs
-          tabs.forEach((t) => t.classList.remove("active"));
-          tab.classList.add("active");
-
-          // Get selected tab data
-          const selected = tab.getAttribute("data-tab");
-          if (!selected) {
-            console.warn("Tab missing data-tab attribute");
-            return;
-          }
-
-          // Show/hide content
-          contents.forEach((c) => {
-            if (c.id === selected) {
-              c.style.display = "block";
-            } else {
-              c.style.display = "none";
-            }
-          });
-        } catch (error) {
-          console.error("Error in tab click handler:", error);
-        }
-      });
-    });
-
-    console.log("Tab functionality initialized successfully");
-  } catch (error) {
-    console.error("Error initializing tabs:", error);
   }
 }
 
@@ -227,105 +173,67 @@ function initializeTestimonials() {
   }
 }
 
-// Swiper initialization with error handling
-function initializeSwiper() {
-  try {
-    // Check if Swiper library is available
-    if (typeof Swiper === 'undefined') {
-      console.log("Swiper library not found on this page");
-      return;
-    }
+// ----------------------------------------------------------------------------
+// scroll to top button functionality 
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
-    const galleryThumbsElement = safeQuerySelector('.gallery-thumbs');
-    const testimonialSwiperElement = safeQuerySelector('.swiper-container.testimonial');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) {
+    scrollToTopBtn.classList.add('active');
+  } else {
+    scrollToTopBtn.classList.remove('active');
+  }
+});
 
-    if (galleryThumbsElement) {
-      try {
-        const galleryThumbs = new Swiper('.gallery-thumbs', {
-          effect: 'coverflow',
-          grabCursor: true,
-          centeredSlides: true,
-          slidesPerView: '2',
-          coverflowEffect: {
-            rotate: 0,
-            stretch: 0,
-            depth: 50,
-            modifier: 6,
-            slideShadows: false,
-          },
-        });
-        console.log("Gallery thumbs Swiper initialized successfully");
-      } catch (error) {
-        console.error("Error initializing gallery thumbs Swiper:", error);
-      }
-    }
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
 
-    if (testimonialSwiperElement) {
-      try {
-        const galleryTop = new Swiper('.swiper-container.testimonial', {
-          speed: 400,
-          spaceBetween: 50,
-          autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-          },
-          direction: 'vertical',
-          pagination: {
-            clickable: true,
-            el: '.swiper-pagination',
-            type: 'bullets',
-          },
-          thumbs: {
-            swiper: galleryThumbs || null
-          }
-        });
-        console.log("Testimonial Swiper initialized successfully");
-      } catch (error) {
-        console.error("Error initializing testimonial Swiper:", error);
-      }
-    }
-  } catch (error) {
-    console.error("Error in Swiper initialization:", error);
+function scrollToElement(targetId, top = 0) {
+  let target = document.getElementById(targetId);
+  if (target) {
+    const offset = top; // offset in px
+    const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
   }
 }
 
-// Audio toggle functionality with error handling
-function initializeAudioToggle() {
-  try {
-    // Make toggleAudio function available globally
-    window.toggleAudio = function (e) {
-      try {
-        if (!e || !e.firstElementChild) {
-          console.warn("Invalid element passed to toggleAudio");
-          return;
-        }
 
-        const icons = e.firstElementChild;
-        const video = safeQuerySelector('#video_');
-
-        if (!video) {
-          console.warn("Video element not found");
-          return;
-        }
-
-        if (icons.classList.contains('fa-volume-mute')) {
-          icons.classList.replace('fa-volume-mute', 'fa-volume-up');
-          video.muted = !video.muted;
-        } else if (icons.classList.contains('fa-volume-up')) {
-          icons.classList.replace('fa-volume-up', 'fa-volume-mute');
-          video.muted = !video.muted;
-        }
-      } catch (error) {
-        console.error("Error in toggleAudio:", error);
+// Brochure modal functionality
+document.addEventListener("DOMContentLoaded", function () {
+  function toggleModal(show) {
+    const modal = document.getElementById('downloadModal');
+    const brochureForm = document.getElementById('brochureForm');
+    if (show) {
+      if (modal && brochureForm) {
+        brochureForm.classList.toggle('active');
+        modal.classList.toggle('active');
       }
-    };
-
-    console.log("Audio toggle functionality initialized successfully");
-  } catch (error) {
-    console.error("Error initializing audio toggle:", error);
+    } else {
+      if (modal && brochureForm) {
+        brochureForm.classList.remove('active');
+        modal.classList.remove('active');
+      }
+    }
   }
-}
+  window.toggleModal = toggleModal;
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      toggleModal(false);
+    }
+  });
+});
 
+// ------------------------------------------------------------------
+// whatsapp button functionality
 // Chat box functionality with error handling
 function initializeChatBox() {
   try {
@@ -384,15 +292,14 @@ function initializeChatBox() {
   }
 }
 
+
+
 // Main initialization function
 function initializeAll() {
   console.log("Starting JavaScript initialization...");
-
   // Initialize all components
-  initializeTabs();
+  // initializeTabs();
   initializeTestimonials();
-  initializeSwiper();
-  initializeAudioToggle();
   initializeChatBox();
 
   console.log("JavaScript initialization completed");
@@ -405,115 +312,6 @@ if (document.readyState === 'loading') {
   // DOM is already loaded
   initializeAll();
 }
-
-// ----------------------------------------------------------------------------
-// scroll to top button functionality 
-const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 200) { // Show after scrolling 200px
-    scrollToTopBtn.classList.add('active');
-  } else {
-    scrollToTopBtn.classList.remove('active');
-  }
-});
-
-scrollToTopBtn.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-});
-
-function scrollToElement(targetId,top=0) {
-  let target = document.getElementById(targetId);
-  if (target) {
-    const offset = top; // offset in px
-    const elementPosition = target.getBoundingClientRect().top + window.scrollY;
-    const offsetPosition = elementPosition - offset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
-  }
-}
-
-
-// ------------------------------------------------------------------------
-// Brochure form functionality
-document.addEventListener("DOMContentLoaded", function () {
-
-  function toggleModal(show) {
-    const modal = document.getElementById('downloadModal');
-    const brochureForm = document.getElementById('brochureForm');
-    if (show) {
-      if (modal) {
-        brochureForm.classList.toggle('active');
-        modal.classList.toggle('active');
-      }
-      return;
-    }
-
-    brochureForm.classList.remove('active');
-    modal.classList.remove('active');
-
-  }
-
-  // Expose to global scope so button can call it
-  window.toggleModal = toggleModal;
-
-
-  // Close on Escape key
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      toggleModal(false);
-    }
-  });
-
-});
-
-// ----------------------------------------------------------------------------
-// contact form functionality
-// $(document).ready(function () {
-//   $('#contactForm').on('submit', function (e) {
-//     e.preventDefault(); // prevent default form submission
-//     $('#formMessage').html(''); // clear previous messages
-//     $('#submitBtn').prop('disabled', true).children('span').text('Sending...'); // disable submit button
-
-//     var formData = new FormData(this);
-//     // Simulate a successful form submission after 3 seconds
-//     console.log("Form Data Submitted:", Object.fromEntries(formData.entries())); // Log form data to console
-
-//     setTimeout(() => {
-
-//       $('#formMessage').html('<p style="color:green;">Your message has been sent successfully!</p>');
-//       $('#submitBtn').prop('disabled', false).text('Submit'); // re-enable submit button
-//       $('#contactForm')[0].reset(); // reset form fields
-
-//       setTimeout(() => {
-//         $('#formMessage').html('');
-//       }, 2000);
-
-//     }, 3000);
-
-//     // $.ajax({
-//     //     url: 'send-mail.php', // your PHP script
-//     //     type: 'POST',
-//     //     data: formData,
-//     //     contentType: false,
-//     //     processData: false,
-//     //     success: function (response) {
-//     //         $('#formMessage').html(response); // display response message
-//     //         settimeout
-//     //     },
-//     //     error: function () {
-//     //         $('#formMessage').html('<p style="color:red;">An error occurred. Please try again.</p>');
-//     //     }
-//     // });
-//   });
-// });
-
 
 // -------------------------------------------------------
 // add policy year

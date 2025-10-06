@@ -91,10 +91,17 @@ brochure_form.onsubmit = function (event) {
             setTimeout(() => {
                 brochure_message.classList.add("hidden");
                 brochure_message.innerText = "";
-            }, 5000);
+                brochure_form.reset();
+                clearGoogleCaptcha(brochure_form)
 
-            brochure_form.reset();
-            clearGoogleCaptcha(brochure_form)
+                setTimeout(() => {
+                    const modal = document.getElementById('downloadModal');
+                    const brochureForm = document.getElementById('brochureForm');
+                    brochureForm.classList.remove('active');
+                    modal.classList.remove('active');
+
+                }, 1000);
+            }, 5000);
         })
         .catch((error) => {
             brochure_message.style.color = "red";
