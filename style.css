@@ -532,7 +532,7 @@ header {
 
 .kpi-card-body .kpi-card {
   position: relative;
-  padding: 10px 20px;
+  padding: 10px 15px;
   border: 1px solid var(--golden-brown);
   border-radius: 5px;
   color: white;
