@@ -173,6 +173,40 @@ function initializeTestimonials() {
   }
 }
 
+// Audio toggle functionality with error handling
+function initializeAudioToggle() {
+  try {
+    // Make toggleAudio function available globally
+    window.toggleAudio = function (e) {
+      try {
+        if (!e || !e.firstElementChild) {
+          return;
+        }
+
+        const icons = e.firstElementChild;
+        const video = safeQuerySelector('#video_');
+
+        if (!video) {
+          return;
+        }
+
+        if (icons.classList.contains('fa-volume-mute')) {
+          icons.classList.replace('fa-volume-mute', 'fa-volume-up');
+          video.muted = !video.muted;
+        } else if (icons.classList.contains('fa-volume-up')) {
+          icons.classList.replace('fa-volume-up', 'fa-volume-mute');
+          video.muted = !video.muted;
+        }
+      } catch (error) {
+        console.error("Error in toggleAudio:", error);
+      }
+    };
+
+  } catch (error) {
+    console.error("Error initializing audio toggle:", error);
+  }
+}
+
 // ----------------------------------------------------------------------------
 // scroll to top button functionality 
 const scrollToTopBtn = document.getElementById('scrollToTopBtn');
@@ -299,6 +333,7 @@ function initializeAll() {
   console.log("Starting JavaScript initialization...");
   // Initialize all components
   // initializeTabs();
+  initializeAudioToggle();
   initializeTestimonials();
   initializeChatBox();
 
